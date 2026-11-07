@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>刘牧洋 · 个人档案</title>
+    <meta name="description" content="" />
+    <meta name="theme-color" content="#f7f4ec" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="images/debate.jpg" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2310203a'/%3E%3Cpath d='M22 18v28h20' stroke='%23f7f4ec' stroke-width='6' fill='none' stroke-linecap='square'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      try {
+        var savedTheme = localStorage.getItem("lm-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (e) {
+        /* 隐私模式忽略 */
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" id="siteHeader">
+      <div class="nav-inner">
+        <a href="#top" class="brand" id="brand"></a>
+
+        <nav class="nav-links" id="navLinks" aria-label="主导航"></nav>
+
+        <div class="nav-tools">
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="切换主题">
+            <span class="icon-sun" aria-hidden="true"></span>
+            <span class="icon-moon" aria-hidden="true"></span>
+          </button>
+          <button
+            class="menu-btn"
+            id="menuToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="navLinks"
+            aria-label="打开菜单"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 首屏 -->
+      <section class="hero" id="top">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow" id="heroEyebrow"></p>
+            <h1 class="hero-name" id="heroName"></h1>
+            <p class="hero-latin" id="heroLatin"></p>
+            <p class="hero-tagline" id="heroTagline"></p>
+            <div class="hero-actions" id="heroActions"></div>
+          </div>
+
+          <!-- 代表证 -->
+          <aside class="badge" id="badgeCard" aria-label="代表证">
+            <div class="badge-head">
+              <span class="badge-label" id="badgeLabel"></span>
+              <span class="badge-code" id="badgeCode"></span>
+            </div>
+
+            <div class="badge-body">
+              <div class="badge-portrait" id="badgePortrait" aria-hidden="true"></div>
+              <div class="badge-id">
+                <p class="badge-name" id="badgeName"></p>
+                <p class="badge-latin" id="badgeLatin"></p>
+                <p class="badge-school" id="badgeSchool"></p>
+                <p class="badge-grade" id="badgeGrade"></p>
+              </div>
+            </div>
+
+            <div class="badge-foot">
+              <span class="badge-role" id="badgeRole"></span>
+              <span class="barcode" aria-hidden="true"></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 关于 -->
+      <section class="section" id="about">
+        <div class="section-grid">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section-title" data-title></h2>
+          </header>
+          <div class="section-body">
+            <div class="prose" id="aboutText" data-reveal></div>
+            <dl class="facts" id="aboutFacts" data-reveal></dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- 模拟联合国 -->
+      <section class="section" id="mun">
+        <div class="section-grid">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section-title" data-title></h2>
+            <p class="section-sub" data-subtitle></p>
+          </header>
+          <div class="section-body">
+            <div class="prose" id="munText" data-reveal></div>
+            <ul class="chips" id="munTags" data-reveal></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 辩论 -->
+      <section class="section section--wide" id="debate">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow" data-eyebrow></p>
+          <h2 class="section-title" data-title></h2>
+          <p class="section-sub" data-subtitle></p>
+        </header>
+
+        <figure class="photo" data-reveal>
+          <img id="debateImg" src="" alt="" loading="lazy" decoding="async" />
+          <figcaption class="photo-cap" id="debateCaption"></figcaption>
+        </figure>
+      </section>
+
+      <!-- 技能 -->
+      <section class="section" id="skills">
+        <div class="section-grid">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section-title" data-title></h2>
+            <p class="section-sub" data-subtitle></p>
+          </header>
+          <div class="section-body">
+            <div class="skill-groups" id="skillGroups" data-reveal></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 联系 -->
+      <section class="section" id="contact">
+        <div class="section-grid">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section-title" data-title></h2>
+          </header>
+          <div class="section-body">
+            <div class="contact" data-reveal>
+              <p class="contact-text" id="contactText"></p>
+              <a class="contact-phone" id="contactPhone" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-name" id="footerName"></p>
+      <p class="footer-note" id="footerText"></p>
+    </footer>
+
+    <a href="#top" class="to-top" id="backTop" aria-label="回到顶部">
+      <span aria-hidden="true">↑</span>
+    </a>
+
+    <noscript>
+      <p class="noscript">这个页面需要启用 JavaScript 才能显示内容。</p>
+    </noscript>
+
+    <script>
+      window.addEventListener(
+        "error",
+        function (event) {
+          var el = event.target;
+          if (!el || (el.tagName !== "SCRIPT" && el.tagName !== "LINK")) return;
+          var file = el.getAttribute("src") || el.getAttribute("href") || "";
+          if (/data\.js$/.test(file)) return;
+          if (document.getElementById("loadError")) return;
+          var box = document.createElement("div");
+          box.id = "loadError";
+          box.className = "load-error";
+          box.textContent =
+            "页面文件没有加载完整：找不到 " +
+            file +
+            "。请确认 index.html、style.css、script.js、data.js 和 images 文件夹都在同一个目录里。";
+          document.body.appendChild(box);
+        },
+        true
+      );
+    </script>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
