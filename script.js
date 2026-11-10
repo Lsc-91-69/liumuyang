@@ -25,6 +25,12 @@
     });
   };
 
+  var fmt = function (tpl, vars) {
+    return String(tpl == null ? "" : tpl).replace(/\{(\w+)\}/g, function (m, key) {
+      return vars && vars[key] != null ? vars[key] : "";
+    });
+  };
+
   var storage = (function () {
     try {
       var k = "__lm_test__";
@@ -140,7 +146,30 @@
     set("#badgeLatin", p.latin);
     set("#badgeSchool", p.school);
     set("#badgeGrade", p.grade);
-    set("#badgePortrait", b.initial || (p.name || "").slice(0, 1));
+
+    var portrait = $("#badgePortrait");
+    if (portrait) {
+      if (p.avatar) {
+        portrait.innerHTML =
+          '<img src="' +
+          esc(p.avatar) +
+          '" alt="' +
+          esc(fmt(ui.avatarAlt || "{name}", { name: p.name })) +
+          '" />';
+        var avatarImg = portrait.querySelector("img");
+        if (avatarImg) {
+          avatarImg.addEventListener(
+            "error",
+            function () {
+              portrait.textContent = b.initial || (p.name || "").slice(0, 1);
+            },
+            { once: true }
+          );
+        }
+      } else {
+        portrait.textContent = b.initial || (p.name || "").slice(0, 1);
+      }
+    }
   }
 
   /* ---------- 区块标题 ---------- */
@@ -215,6 +244,55 @@
 
     var textEl = $("#munText");
     if (textEl) textEl.innerHTML = paragraphs(mun.paragraphs);
+
+    var recordEl = $("#munRecord");
+    if (recordEl) {
+      recordEl.innerHTML = (mun.record || [])
+        .map(function (r) {
+          return (
+            '<li class="mun-item">' +
+            '<div class="mun-info">' +
+            '<div class="mun-meta">' +
+            '<p class="mun-session">' +
+            esc(r.session) +
+            "</p>" +
+            (r.year ? '<p class="mun-year">' + esc(r.year) + "</p>" : "") +
+            "</div>" +
+            (r.host ? '<p class="mun-host">' + esc(r.host) + "</p>" : "") +
+            (r.role ? '<p class="mun-role">' + esc(r.role) + "</p>" : "") +
+            "</div>" +
+            (r.image
+              ? '<figure class="mun-photo"><img src="' +
+                esc(r.image) +
+                '" alt="' +
+                esc(r.alt || "") +
+                '" loading="lazy" decoding="async" /></figure>'
+              : "") +
+            "</li>"
+          );
+        })
+        .join("");
+    }
+
+    var scene = mun.scene || {};
+    var sceneEl = $("#munScene");
+    if (sceneEl) {
+      if (scene.image) {
+        var sceneImg = $("#munSceneImg");
+        if (sceneImg) {
+          sceneImg.src = scene.image;
+          sceneImg.alt = scene.alt || "";
+        }
+        var sceneCap = $("#munSceneCap");
+        if (sceneCap) {
+          sceneCap.textContent = scene.caption || "";
+          sceneCap.hidden = !scene.caption;
+        }
+        sceneEl.hidden = false;
+      } else {
+        sceneEl.hidden = true;
+      }
+    }
 
     var tagsEl = $("#munTags");
     if (tagsEl) {

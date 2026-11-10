@@ -449,11 +449,20 @@ a {
   height: 78px;
   display: grid;
   place-items: center;
+  overflow: hidden;
   border: 1px solid var(--badge-line);
   font-family: var(--font-serif);
   font-size: 1.9rem;
   line-height: 1;
   color: var(--badge-text);
+}
+
+.badge-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  display: block;
 }
 
 .badge-id {
@@ -651,7 +660,94 @@ a {
   color: var(--accent);
 }
 
-/* ---------- 照片 ---------- */
+/* ---------- 模拟联合国经历 ---------- */
+
+.mun-record {
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.mun-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 20px 36px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.mun-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mun-session {
+  margin: 0;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.mun-year {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.mun-host {
+  margin: 9px 0 0;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.mun-role {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.mun-photo {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.mun-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.mun-item:hover .mun-photo img {
+  transform: scale(1.03);
+}
+
+.mun-scene {
+  margin: 34px 0 0;
+}
+
+.mun-scene img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.mun-scene .photo-cap {
+  margin-top: 12px;
+}
+
+/* ---------- 辩论照片 ---------- */
 
 .photo {
   margin: 0;
@@ -888,6 +984,16 @@ a {
 
   .section-head {
     position: static;
+  }
+
+  .mun-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .mun-photo {
+    aspect-ratio: 16 / 9;
+    max-width: 420px;
   }
 }
 

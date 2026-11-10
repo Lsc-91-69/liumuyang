@@ -9,7 +9,7 @@ const siteData = {
   meta: {
     title: "刘牧洋 · 个人档案",
     description:
-      "刘牧洋，重庆枫叶国际学校高一学生。参加过很多场模拟联合国，也打辩论。喜欢把话说清楚，也喜欢把想法做成能点开的东西。",
+      "刘牧洋，重庆枫叶国际学校高一学生。参加过第十二届、第十三届西南地区模拟联合国大会，也打辩论。",
     lang: "zh-CN",
   },
 
@@ -25,6 +25,7 @@ const siteData = {
     eyebrow: "高一 · 重庆",
     school: "重庆枫叶国际学校",
     grade: "高一",
+    avatar: "images/avatar.jpg",
     tagline:
       "模拟联合国代表，也打辩论。喜欢把话说清楚，也喜欢把想法做成能点开的东西。",
     actions: [
@@ -35,7 +36,6 @@ const siteData = {
       label: "DELEGATE",
       code: "LMY · 2026",
       role: "MUN · DEBATE",
-      initial: "刘",
     },
   },
 
@@ -75,6 +75,29 @@ const siteData = {
       "一场会下来，会前的背景文件和立场文件通常比会场更耗人。要把一个国家的立场读明白，再写成能站住脚的论证，最后压缩成几分钟的发言。",
       "会场上是另一回事。要在一群代表里找到能合作的，把分歧写成修正案，让决议草案走到投票那一步。语言要客气，立场要清楚。",
     ],
+    record: [
+      {
+        session: "第十二届",
+        year: "2025",
+        host: "西南财经大学",
+        role: "美国参议院 · 俄亥俄州代表",
+        image: "images/mun-12.jpg",
+        alt: "第十二届西南地区模拟联合国大会合影",
+      },
+      {
+        session: "第十三届",
+        year: "2026",
+        host: "1878 柏林会议",
+        role: "历史委员会",
+        image: "images/mun-13.jpg",
+        alt: "第十三届西南地区模拟联合国大会合影",
+      },
+    ],
+    scene: {
+      image: "images/mun-venue.jpg",
+      alt: "模拟联合国大会会场，主席台与红色横幅",
+      caption: "大会会场。主席台上方挂着「第十二届西南地区模拟联合国大会」。",
+    },
     tags: ["议题研究", "立场文件", "决议草案", "议事规则", "磋商与结盟"],
   },
 
@@ -94,7 +117,10 @@ const siteData = {
     title: "在做的东西",
     subtitle: "前端是自学的，模联和辩论是在场上练出来的。",
     groups: [
-      { label: "前端", items: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Vue", "Node.js"] },
+      {
+        label: "前端",
+        items: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Vue", "Node.js"],
+      },
       { label: "设计", items: ["Figma"] },
       { label: "场上", items: ["模拟联合国", "辩论与表达"] },
     ],
@@ -121,7 +147,7 @@ const siteData = {
     openMenu: "打开菜单",
     closeMenu: "关闭菜单",
     backTop: "回到顶部",
-    call: "打电话",
+    avatarAlt: "{name}的头像",
   },
 };
 
